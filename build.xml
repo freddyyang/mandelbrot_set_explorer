@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Assignment6" default="run" basedir=".">
+    
+    <!-- set global properties for this build -->
+  <property name="Assignment6" location="."/>
+  <property name="build" location="build"/>
+  <property name="programmingAssignmentTitle" value="Task Framework API"/>
+  
+  <target name="clean" description="Delete and remake the ${build} directory" >
+    <delete dir="${build}"/>
+    <mkdir dir="${build}"/>
+  </target>
+  
+  <target name="compile" depends="clean" description="Compile the java code from ${Assignment6} into ${build}">
+    <javac srcdir="${Assignment6}" destdir="${build}"/>
+  </target>
+  
+  <target name="javadoc" depends="compile" description="create javadocs">
+    <javadoc destdir="documents/javadoc" author="true" windowtitle="${programmingAssignmentTitle}">
+        <fileset dir="${Assignment6}">
+            <include name="**"/>
+        </fileset>
+    </javadoc>
+  </target>
+  
+  <target name="run" depends="compile" description="run application" >
+        <java classname="App" fork="true">
+          <classpath>
+            <pathelement location="${build}"/>
+          </classpath>
+        </java>
+  </target>
+  
+</project>
