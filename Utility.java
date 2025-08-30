@@ -1,8 +1,3 @@
-/**
- * 
-  * @author Yixin Wang and Freddy Yang
- */
-
 import java.awt.Color;
 import java.awt.Image;
 
@@ -41,3 +36,4 @@ public class Utility {
 		    }
     }
 }
+
